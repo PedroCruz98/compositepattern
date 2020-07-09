@@ -14,7 +14,7 @@ That is, it should replicate the process through which oneself calculates its fi
 
 The following class structure was developed:
 
-![Class Diagram](https://www.planttext.com/api/plantuml/img/ZP3D2i8m3CVlVOeSzU0JA38GVG4VG48RNR5jHffDGNntkmrreWTpo__Z5qYL5KNR68p9PvyQ58mGER6jXIE1IajJAzVe-EBJQRLAV1YtzNgC_KnTlDRlt153BZoVbEI8bc3ROMXHFIUu6IYpLoazS9Ij-AOtPlFbuEm2eq93OYafdkXJxpc3T3V61imPzeKJQ7B0noPGBENyUVRLs72VkFvH0NHkHXsEmjo0KEIEUYayjOBz1l9YCI4PKr5ovViF)
+![Class Diagram](https://www.planttext.com/api/plantuml/img/hP5BQiCm48RtSueXgwIGGDSD8L3Q2-G0Pf36jgYaCTBOAPJSFNASrkvZMUtqlpw1ZbafQHyyG7vpiQD40OD4CMsImAYfvwMLMx9oTh7PxwDKq-rmc69_fivEspbNayzbpqNbL9DXV1d8zwHE8du0bdFIL7feEPlakj5ORvvkpgiNKkmu6OvA3N_NnvsRT04mddB6Kzdnl02uq7aEfPn_OE_CQW65-smryxwa9f7bcVCiu-xxVu80oTer3pHLDu29WmmyIlvJAm-0tspPUgvrkthSxHvM2pp0aQCj7tq5)
 
 **Evaluation Interface**
 - Each evaluation has a description (so it can be identifiable), a weight (percent wise), and a value (grade given to that component).
