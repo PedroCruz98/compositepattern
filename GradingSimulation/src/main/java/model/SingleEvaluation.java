@@ -1,20 +1,20 @@
 package model;
 
-public class SingleValue implements Evaluation {
+public class SingleEvaluation implements Evaluation {
 
     private final String _description;
     private final Float _percentage;
-    private final Float _value;
+    private final Float _grade;
 
-    public SingleValue(String description, float percentage, float value) throws IllegalArgumentException {
-        validationOnInstantiation(description, percentage, value);
+    public SingleEvaluation(String description, float percentage, float value) throws IllegalArgumentException {
+        validationOnInstantiation(description, percentage);
 
         _description = description;
         _percentage = percentage;
-        _value = value;
+        _grade = value;
     }
 
-    private void validationOnInstantiation(String description, float percentage, float value) throws IllegalArgumentException {
+    private void validationOnInstantiation(String description, float percentage) throws IllegalArgumentException {
         if (description == null || description.isEmpty())
             throw new IllegalArgumentException("Description can't be empty nor null");
 
@@ -34,11 +34,11 @@ public class SingleValue implements Evaluation {
 
     @Override
     public Float value() {
-        return _percentage * _value;
+        return _percentage * _grade;
     }
 
     @Override
     public String toString() {
-        return String.format("%s:\t[p = %.2f; n = %.2f]", description(), percentage(), _value);
+        return String.format("%s:\t[p = %.2f; n = %.2f]", description(), percentage(), _grade);
     }
 }

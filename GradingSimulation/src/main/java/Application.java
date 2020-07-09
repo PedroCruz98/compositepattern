@@ -4,17 +4,17 @@ public class Application {
 
     public static void main(String[] args) {
 
-        Evaluation tp1 = new SingleValue("tp1", .45f, 17.7f);
-        Evaluation tp2 = new SingleValue("to2", .55f, 9.4f);
+        Evaluation tp1 = new SingleEvaluation("tp1", .45f, 17.7f);
+        Evaluation tp2 = new SingleEvaluation("to2", .55f, 9.4f);
 
-        Evaluation t1 = new SingleValue("test1", .25f, 14.5f);
-        Evaluation t2 = new SingleValue("test2", .5f, 13.7f);
-        Evaluation pw = new ComplexValue("practical work", .25f, tp1, tp2);
+        Evaluation t1 = new SingleEvaluation("test1", .25f, 14.5f);
+        Evaluation t2 = new SingleEvaluation("test2", .5f, 13.7f);
+        Evaluation pw = new ComplexEvaluation("practical work", .25f, tp1, tp2);
 
-        Evaluation freq = new ComplexValue("freq", .7f, t1, t2, pw);
-        Evaluation exam = new SingleValue("exam", .3f, 8f);
+        Evaluation freq = new ComplexEvaluation("freq", .7f, t1, t2, pw);
+        Evaluation exam = new SingleEvaluation("exam", .3f, 8f);
 
-        Evaluation total = new ComplexValue("total", 1f, freq, exam);
+        Evaluation total = new ComplexEvaluation("total", 1f, freq, exam);
 
         /*
             Simulate the following:

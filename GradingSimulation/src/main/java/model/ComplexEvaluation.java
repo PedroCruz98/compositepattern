@@ -1,29 +1,35 @@
 package model;
 
-public class ComplexValue implements Evaluation {
+import java.util.Arrays;
+import java.util.List;
+
+public class ComplexEvaluation implements Evaluation {
 
     private final String _description;
     private final Float _percentage;
-    private final Evaluation[] _values;
+    private final List<Evaluation> _grades;
 
-    public ComplexValue(String description, float percentage, Evaluation... values) throws IllegalArgumentException {
+    public ComplexEvaluation(String description, float percentage, Evaluation... values) throws IllegalArgumentException {
         validationOnInstantiation(description, percentage, values);
 
         _description = description;
         _percentage = percentage;
-        _values = values;
+        _grades = Arrays.asList(values);
     }
 
     private void validationOnInstantiation(String description, float percentage, Evaluation... values) throws IllegalArgumentException {
         if (description == null || description.isEmpty())
             throw new IllegalArgumentException("Description can't be empty nor null");
 
-        if (values == null) throw new IllegalArgumentException("Null value not accepted");
         if (values.length == 0) throw new IllegalArgumentException("ComplexValues cannot be empty.");
+    }
 
-        float acc = 0f;
-        for (Evaluation sv : values) acc += sv.percentage();
-        if ((1 - acc) * 1000 > 0) throw new IllegalArgumentException("Percentage accumulation should be 1.");
+    public void add(Evaluation evaluation) {
+        _grades.add(evaluation);
+    }
+
+    public void remove(Evaluation evaluation){
+        _grades.remove(evaluation);
     }
 
     @Override
@@ -38,9 +44,7 @@ public class ComplexValue implements Evaluation {
 
     @Override
     public Float value() {
-        float acc = 0f;
-        for (Evaluation sv : _values) acc += sv.value();
-        return _percentage * acc;
+        return _percentage * (float) _grades.stream().mapToDouble(Evaluation::value).sum();
     }
 
     @Override
@@ -48,7 +52,7 @@ public class ComplexValue implements Evaluation {
 
         StringBuilder buff = new StringBuilder();
         buff.append(String.format("%s: [p = %.2f]\n", description(), percentage()));
-        for (Evaluation g : _values) {
+        for (Evaluation g : _grades) {
             buff.append(g.toString().replaceAll("\n", "\n\t")).append("\n");
         }
         String a = buff.toString().replaceAll("\n", "\n\t");
